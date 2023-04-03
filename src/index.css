@@ -1,0 +1,50 @@
+*{
+  /* font-family: 'Quicksand', sans-serif; */
+  /* font-family: 'Lexend', sans-serif; */
+  /* font-family: 'Reem Kufi Ink', sans-serif; */
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Fredoka', sans-serif; */
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #f1f1f1;;
+}
+
+.header{
+  display: flex;
+  border: solid 1px ;
+  padding: 10px;
+  align-content:space-between;
+  height: 10rem;
+  border-radius: 5px;
+}
+
+
+.btn{
+  margin-left: 5rem;
+  align-self: center;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 0;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+}
+
+.texts{
+    padding: 5px;
+    background-color: rgb(245, 245, 245);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 7px;
+    margin: 8px;
+
+}
+
+.reminders{
+  border-left: solid green 3px;
+  border-radius: 0;
+}
