@@ -51,7 +51,7 @@ export const Cart = () => {
                                 <PriceContainer>
                                      <PriceDetail>
                                        <AmountContainer>
-                                           <Remove/>
+                                           <Remove />
                                            <Amount>{product.quantity}</Amount>
                                             <Add/>
                                          </AmountContainer>

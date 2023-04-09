@@ -43,8 +43,10 @@ const Wrapper = styled.div`
 display:flex;
 transition:1s ease;
 transform: translateX(${props=>props.slideIndex * -100}vw);
+-webkit-animation: slide 2s infinite linear;
 align-items:center;
 `
+
 const ImgContainer = styled.div`
 align-items:center;
 height:100vh;
@@ -84,7 +86,7 @@ padding: 15px;
 padding-left:20px;
 padding-right:20px;
 font-size:20px;
-background:linear-gradient(90deg,#9662e9,#6f2bdd);
+background:linear-gradient(90deg,#b700ff,#8400ff);
 cursor:pointer;
 border-radius:50px;
 color:white;
