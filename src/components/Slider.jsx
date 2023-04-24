@@ -129,7 +129,6 @@ export const Slider = () => {
                      <Image src={item.img}/>
                      </ImgContainer>
                      </Slide>
-                    
                 ))}
             </Wrapper>             
             <Arrow  onClick={()=>handleClick("right")} direction="right" >

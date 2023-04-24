@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {Navbar} from '../components/Navbar'
 import {Banner} from '../components/Banner'
@@ -9,18 +9,33 @@ import {Add, Remove} from '@mui/icons-material'
 import {mobile} from '../Responsive'
 import { useSelector } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
+import { userRequest } from '../requestMethod'
+// import { useHistory } from "react-router-dom";
 
 // const KEY = process.env.STRIPE_KEY
 
 export const Cart = () => {
 
     const [stripeToken, setStripeToken] = useState(null)
+    const history = useHistory()
 
     const onToken = (token) => {
         setStripeToken(token)
     }
 
-    console.log(stripeToken)
+    useEffect(()=>{
+        const makeRequest = async ()=>{
+            try{
+                const res = await userRequest("/checkout/payment", {
+                    tokenId : stripeToken, 
+                    amount: cart.total *100,
+                })
+                history.push("/success", {data:res.data})
+            }catch(err){}
+        }
+        stripeToken && cart.total>=1 && makeRequest()
+    },[stripeToken,cart.total, history])
+
 
 
   const cart = useSelector(state=>state.cart)
@@ -87,7 +102,7 @@ export const Cart = () => {
                         description={`Your Total is ${cart.total}`}
                         amount={cart.total*100}
                         token={onToken}
-                        stripeKey="sk_test_51MoVIfA9b66yeZaJGQc3r1rsGZfMzBzdHfK3rNAWb2ZDIRPOI5Q7W0TQtukY76Rgbnt8bswiJYW9PFKxyfmM0pKZ00rLbRsfYB"
+                        stripeKey="pk_test_51MoVIfA9b66yeZaJFyOnVgc2PpyLIVf3rPbVwsFD3ZLvTcEj6EimxzskfyxgoBXtu1Hd19ftBwNT6ZRUqkQyuB6c00bV5pDroH"
                         >
                         <CheckoutBtn>CHECKOUT</CheckoutBtn>
                         </StripeCheckout>
